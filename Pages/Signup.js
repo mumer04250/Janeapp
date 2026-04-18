@@ -14,9 +14,22 @@ export class userSignup{
         this.txtpno=page.locator('input[name="phone"]')
         this.ddphonetype=page.getByLabel('Phone Type')
         this.txtname=page.getByLabel('Preferred name')
+        this.ddaboutus=page.locator('select[name="referral_source"]')
+        this.ddrefstaffmember=this.page.getByLabel('Who were you referred to?')
+        //this.ddrefstaffmember=page.locator('select["referring_staff_member_id"]')
         this.btncontinue=this.page.getByRole('button',{name:'Continue'})
+        this.btnsubmit=this.page.locator('button[type="submit"]')
+        this.txtusername=this.page.getByPlaceholder('Username or Email Address')
+        this.txtpassword=this.page.locator('#identity_password')
+        this.txtconfpassword=this.page.getByPlaceholder('Confirm Password')
+        this.confheading=this.page.getByRole('heading',{name:"'You're almost done!'"})
+        this.creatheading=this.page.getByRole('heading',{name:"Create Account"})
+        this.acccreate=this.page.locator('#account_navigation')
+
+        this.btnLogin=this.page.locator('#log_in')
+
     }
-    async SignupClick(fname,lname,email,pnocode,pno,pnotype,name)
+    async SignupClick(fname,lname,email,pnocode,pno,pnotype,name,about,refid,username,password,confpass)
     {
         await this.userSignupLink.click()
         await this.userCreateAccLink.click()
@@ -29,6 +42,19 @@ export class userSignup{
         await this.ddphonetype.selectOption(pnotype)
         await this.txtname.fill(name)
         await this.btncontinue.click()
+      //  await expect(this.confheading).toBeVisible()
+        await this.ddaboutus.selectOption(about)
+        await this.ddrefstaffmember.selectOption(refid)
+        await this.btnsubmit.click()
+       // await expect(this.creatheading).toBeVisible()
+        await this.txtusername.fill(username)
+        await this.txtpassword.fill(password)
+        await this.txtconfpassword.fill(confpass)
+        await this.btnLogin.click()
+        //await expect(this.acccreate).toBeVisible()
+       // await expect(this.page).toHaveURL(/account/)
+        console.log(email)
+
        
     }
     

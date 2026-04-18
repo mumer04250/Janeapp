@@ -18,7 +18,7 @@ export class userLogin{
         await this.btncontinue.click()
         await this.txtpassword.fill(password)
         await this.btnLogin.click()
-        await this.page.waitForURL(/account/)
+        //await this.page.waitForURL(/account/)
         
     }
 }

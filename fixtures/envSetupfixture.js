@@ -1,6 +1,6 @@
 import{test as base, expect} from '@playwright/test'
 export const test=base.extend({
-    envSetup:async({page},use)=>{
+    page:async({page},use)=>{
         await page.goto('https://demo.janeapp.com/')
         await use(page)
         

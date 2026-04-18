@@ -1,4 +1,4 @@
-import {test} from '../fixtures/envSetupfixture'
+import {expect, test} from '../fixtures/envSetupfixture'
 import { userSignup } from '../Pages/Signup'
 import { signUpdata,generateEmail } from '../Utils/testdata'
 let signupObj
@@ -12,6 +12,12 @@ test('User SignUp',async({page})=>{
         signUpdata.pnocode,
         signUpdata.pno,
         signUpdata.phonetype,
-        signUpdata.name
+        signUpdata.name,
+        signUpdata.aboutus,
+        signUpdata.referalid,
+        signUpdata.name,
+        signUpdata.password,
+        signUpdata.confirmpassword
+        
     )
 })
